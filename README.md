@@ -1,5 +1,4 @@
 ##SGL
--------------------------------------------------------------
 SGL is short for **Seeed Graphics Library**. It is the core graphics for displays which provide a common set of graphics primitives(points, lines, circles, etc.).
 
 ### Interface Introduction
