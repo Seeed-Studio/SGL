@@ -4,32 +4,32 @@ SGL is short for **Seeed Graphics Library**. It is the core graphics for display
 ### Interface Introduction
 **we offer some userful functions as follow:**
 ```c
-    //draw a line between two points
-    virtual void drawLine(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color);
-	//draw a vertical line
-    virtual void drawVerticalLine(uint16_t x, uint16_t y, uint16_t height,uint16_t color);
-    //draw a horizontal line
-    virtual void drawHorizontalLine(uint16_t x, uint16_t y, uint16_t width, uint16_t color);
-    //draw a rectangle
-    virtual void drawRectangle(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint16_t color);
-    //fill a rectangle area
-	virtual void fillRectangle(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint16_t color);
-	//draw a circle
-	virtual void drawCircle(uint16_t x, uint16_t y, uint16_t r, uint16_t color);
-	//fill a circle
-    virtual void fillCircle(uint16_t x, uint16_t y, uint16_t r, uint16_t color);
-    //draw a traingle
-	virtual void drawTraingle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
-	//fill a traingle area
-	virtual void fillTraingle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);	
-	//draw char like 'a','b','c'
-	virtual void drawChar(uint8_t ascii, uint16_t x, uint16_t y, uint16_t size, uint16_t color);
-	//draw a string like "hello" 
-    virtual void drawString(char* string, uint16_t x, uint16_t y, uint16_t size, uint16_t color);
-    //draw bit map
-	virtual void drawBitMap(uint16_t x, uint16_t y, const uint8_t *bitmap, uint16_t width, int16_t height, uint16_t color);
-	//fill the whole screen with one color
-	virtual void fillScreen(uint16_t color);
+//draw a line between two points
+virtual void drawLine(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color);
+//draw a vertical line
+virtual void drawVerticalLine(uint16_t x, uint16_t y, uint16_t height,uint16_t color);
+//draw a horizontal line
+virtual void drawHorizontalLine(uint16_t x, uint16_t y, uint16_t width, uint16_t color);
+//draw a rectangle
+virtual void drawRectangle(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint16_t color);
+//fill a rectangle area
+virtual void fillRectangle(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint16_t color);
+//draw a circle
+virtual void drawCircle(uint16_t x, uint16_t y, uint16_t r, uint16_t color);
+//fill a circle
+virtual void fillCircle(uint16_t x, uint16_t y, uint16_t r, uint16_t color);
+//draw a traingle
+virtual void drawTraingle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
+//fill a traingle area
+virtual void fillTraingle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);	
+//draw char like 'a','b','c'
+virtual void drawChar(uint8_t ascii, uint16_t x, uint16_t y, uint16_t size, uint16_t color);
+//draw a string like "hello" 
+virtual void drawString(char* string, uint16_t x, uint16_t y, uint16_t size, uint16_t color);
+//draw bit map
+virtual void drawBitMap(uint16_t x, uint16_t y, const uint8_t *bitmap, uint16_t width, int16_t height, uint16_t color);
+//fill the whole screen with one color
+virtual void fillScreen(uint16_t color);
 ```
 
 ----
