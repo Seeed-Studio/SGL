@@ -5,7 +5,7 @@ SGL is short for **Seeed Graphics Library**. It is the core graphics for display
 **we offer some userful functions as follow:**
 ```c
     //draw a line between two points
-	virtual void drawLine(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color);
+    virtual void drawLine(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color);
 	//draw a vertical line
     virtual void drawVerticalLine(uint16_t x, uint16_t y, uint16_t height,uint16_t color);
     //draw a horizontal line

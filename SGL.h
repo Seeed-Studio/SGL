@@ -4,8 +4,8 @@
 *  
 * Copyright (c) 2014 seeed technology inc. 
 * Author        :   lawliet.zou(lawliet.zou@gmail.com)
-* Create Time   : 	Jun 06, 2014
-* Change Log    : 	
+* Create Time   :   Jun 06, 2014
+* Change Log    :   
 *
 * The MIT License (MIT)
 *
@@ -142,29 +142,29 @@ const unsigned char simpleFont[][8] PROGMEM=
 class SGL {
  
 public:
-	SGL(uint16_t width, uint16_t height);
-	virtual void drawPixel(uint16_t x, uint16_t y, uint16_t color) = 0; // implemented by subclass
-	virtual void drawLine(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color);
+    SGL(uint16_t width, uint16_t height);
+    virtual void drawPixel(uint16_t x, uint16_t y, uint16_t color) = 0; // implemented by subclass
+    virtual void drawLine(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color);
     virtual void drawVerticalLine(uint16_t x, uint16_t y, uint16_t height,uint16_t color);
     virtual void drawHorizontalLine(uint16_t x, uint16_t y, uint16_t width, uint16_t color);
     virtual void drawRectangle(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint16_t color);
-	virtual void fillRectangle(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint16_t color);
-	virtual void drawCircle(uint16_t x, uint16_t y, uint16_t r, uint16_t color);
+    virtual void fillRectangle(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint16_t color);
+    virtual void drawCircle(uint16_t x, uint16_t y, uint16_t r, uint16_t color);
     virtual void fillCircle(uint16_t x, uint16_t y, uint16_t r, uint16_t color);
-	virtual void drawTraingle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
-	virtual void fillTraingle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);	
-	virtual void drawChar(uint8_t ascii, uint16_t x, uint16_t y, uint16_t size, uint16_t color);
+    virtual void drawTraingle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
+    virtual void fillTraingle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);    
+    virtual void drawChar(uint8_t ascii, uint16_t x, uint16_t y, uint16_t size, uint16_t color);
     virtual void drawString(char *string, uint16_t x, uint16_t y, uint16_t size, uint16_t color);
-	virtual void drawBitMap(uint16_t x, uint16_t y, const uint8_t *bitmap, uint16_t width, int16_t height, uint16_t color);
-	virtual void fillScreen(uint16_t color);
-	
+    virtual void drawBitMap(uint16_t x, uint16_t y, const uint8_t *bitmap, uint16_t width, int16_t height, uint16_t color);
+    virtual void fillScreen(uint16_t color);
+    
 private:
-	void swap(uint16_t* a, uint16_t* b){ 
-		uint16_t t = *a; *a = *b; *b = t; 
-	};
-	
-	uint16_t _width;
-	uint16_t _height;
+    void swap(uint16_t* a, uint16_t* b){ 
+        uint16_t t = *a; *a = *b; *b = t; 
+    };
+    
+    uint16_t _width;
+    uint16_t _height;
 };
 
 #endif
