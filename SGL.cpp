@@ -215,6 +215,6 @@ void SGL::drawBitMap(uint16_t x, uint16_t y, const uint8_t *bitmap, uint16_t wid
 
 void SGL::fillScreen(uint16_t color)
 {
-    fillRectangle(0, 0, _width-1, _height-1, color);
+    fillRectangle(0, 0, _width, _height, color);
 }
 
