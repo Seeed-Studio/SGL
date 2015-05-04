@@ -182,9 +182,9 @@ void SGL::drawChar(uint8_t ascii, uint16_t x, uint16_t y, uint16_t size, uint16_
         int8_t temp = pgm_read_byte(&simpleFont[ascii-0x20][i]);
         int8_t inrun = 0;
         int8_t runlen = 0;
-        int8_t f;
+        int8_t endrun = 0;
 
-        for(f = 0; f < FONT_Y; f++){
+        for(int8_t f = 0; f < FONT_Y; f++){
             if((temp>>f)&0x01){
                 if (inrun) runlen += 1;
                 else {
@@ -192,20 +192,25 @@ void SGL::drawChar(uint8_t ascii, uint16_t x, uint16_t y, uint16_t size, uint16_
                     runlen = 1;
                 }
             } else if (inrun) {
+                endrun = 1;
+                inrun = 0;
+            }
+
+            if (f == FONT_Y - 1 && inrun) {
+                endrun = 1;
+                // need the +1 b/c we this code is normally
+                // only triggered  when f == FONT_Y, due to the
+                // edge-triggered nature of this algorithm
+                f += 1;
+            }
+            
+            if (endrun) {
                 fillRectangle(x+i*size, y+(f-runlen)*size, size, runlen*size, color);
                 inrun = 0;
                 runlen = 0;
+                endrun = 0;
             }
         }
-
-        // it is possible to remove this duplication, but I could not for the
-        // life of me figure out how to do it inside the loop without
-        // introducing artefacts.
-        // - freespace 2015.5.4
-        if (inrun) {
-            fillRectangle(x+i*size, y+(f-runlen)*size, size, runlen*size, color);
-        }
-
     }
 }
 
