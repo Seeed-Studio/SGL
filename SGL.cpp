@@ -185,7 +185,6 @@ void SGL::drawChar(uint8_t ascii, uint16_t x, uint16_t y, uint16_t size, uint16_
         int8_t f;
 
         for(f = 0; f < FONT_Y; f++){
-            int8_t endrun = 0;
             if((temp>>f)&0x01){
                 if (inrun) runlen += 1;
                 else {
@@ -199,6 +198,10 @@ void SGL::drawChar(uint8_t ascii, uint16_t x, uint16_t y, uint16_t size, uint16_
             }
         }
 
+        // it is possible to remove this duplication, but I could not for the
+        // life of me figure out how to do it inside the loop without
+        // introducing artefacts.
+        // - freespace 2015.5.4
         if (inrun) {
             fillRectangle(x+i*size, y+(f-runlen)*size, size, runlen*size, color);
         }
