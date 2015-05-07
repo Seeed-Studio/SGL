@@ -1,11 +1,11 @@
 /*
-* SGL.cpp 
+* SGL.cpp
 * A library for Seeed Graphical library
-*  
-* Copyright (c) 2014 seeed technology inc. 
+*
+* Copyright (c) 2014 seeed technology inc.
 * Author        :   lawliet.zou(lawliet.zou@gmail.com)
 * Create Time   :   Jun 06, 2014
-* Change Log    :   
+* Change Log    :
 *
 * The MIT License (MIT)
 *
@@ -45,7 +45,7 @@ void SGL::drawLine(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t 
     for (;;){
         drawPixel(x0,y0,color);
         e2 = 2*err;
-        if (e2 >= dy) {     
+        if (e2 >= dy) {
             if (x0 == x1) break;
             err += dy; x0 += sx;
         }
@@ -118,7 +118,7 @@ void SGL::fillCircle(uint16_t poX, uint16_t poY, uint16_t r, uint16_t color)
             if(-x == y && e2 <= x) e2 = 0;
         }
         if(e2 > x) err += ++x*2+1;
-    }while(x <= 0); 
+    }while(x <= 0);
 }
 
 void SGL::drawTraingle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1,uint16_t x2, uint16_t y2, uint16_t color)
@@ -131,13 +131,13 @@ void SGL::drawTraingle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1,uint16
 void SGL::fillTraingle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1,uint16_t x2, uint16_t y2, uint16_t color)
 {
     uint16_t a, b, y, last;
-    
+
     if(y0 > y1){ swap(&y0, &y1); swap(&x0, &x1); }
     if(y1 > y2){ swap(&y2, &y1); swap(&x2, &x1); }
     if(y0 > y1){ swap(&y1, &y0); swap(&x1, &x0); }
 
     if(y0 == y2){
-        x0 = min(x0,x1)<x2?min(x0,x1):x2; 
+        x0 = min(x0,x1)<x2?min(x0,x1):x2;
         x2 = max(x0,x1)>x2?max(x0,x1):x2;
         drawHorizontalLine(x0, y0, x2-x0, color);
         return;
@@ -147,7 +147,7 @@ void SGL::fillTraingle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1,uint16
             dx02 = x2 - x0, dy02 = y2 - y0,
             dx12 = x2 - x1, dy12 = y2 - y1;
     int16_t sa   = 0,       sb   = 0;
-    
+
     if(y1 == y2) last = y1;
     else last = y1-1;
 
@@ -180,12 +180,38 @@ void SGL::drawChar(uint8_t ascii, uint16_t x, uint16_t y, uint16_t size, uint16_
 
     for (int8_t i = 0; i < FONT_X; i++ ) {
         int8_t temp = pgm_read_byte(&simpleFont[ascii-0x20][i]);
+        int8_t inrun = 0;
+        int8_t runlen = 0;
+        int8_t endrun = 0;
+
         for(int8_t f = 0; f < FONT_Y; f++){
             if((temp>>f)&0x01){
-                fillRectangle(x+i*size, y+f*size, size, size, color);
+                if (inrun) runlen += 1;
+                else {
+                    inrun = 1;
+                    runlen = 1;
+                }
+            } else if (inrun) {
+                endrun = 1;
+                inrun = 0;
+            }
+
+            if (f == FONT_Y - 1 && inrun) {
+                endrun = 1;
+                // need the +1 b/c we this code is normally
+                // only triggered  when f == FONT_Y, due to the
+                // edge-triggered nature of this algorithm
+                f += 1;
+            }
+            
+            if (endrun) {
+                fillRectangle(x+i*size, y+(f-runlen)*size, size, runlen*size, color);
+                inrun = 0;
+                runlen = 0;
+                endrun = 0;
             }
         }
-    }  
+    }
 }
 
 void SGL::drawString(char *string, uint16_t x, uint16_t y, uint16_t size, uint16_t color)
@@ -217,4 +243,3 @@ void SGL::fillScreen(uint16_t color)
 {
     fillRectangle(0, 0, _width, _height, color);
 }
-
