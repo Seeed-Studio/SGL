@@ -151,8 +151,8 @@ public:
     virtual void fillRectangle(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint16_t color);
     virtual void drawCircle(uint16_t x, uint16_t y, uint16_t r, uint16_t color);
     virtual void fillCircle(uint16_t x, uint16_t y, uint16_t r, uint16_t color);
-    virtual void drawTraingle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
-    virtual void fillTraingle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);    
+    virtual void drawTriangle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
+    virtual void fillTriangle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);    
     virtual void drawChar(uint8_t ascii, uint16_t x, uint16_t y, uint16_t size, uint16_t color);
     virtual void drawString(char *string, uint16_t x, uint16_t y, uint16_t size, uint16_t color);
     virtual void drawBitMap(uint16_t x, uint16_t y, const uint8_t *bitmap, uint16_t width, int16_t height, uint16_t color);

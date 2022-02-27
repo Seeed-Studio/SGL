@@ -18,10 +18,10 @@ virtual void fillRectangle(uint16_t x, uint16_t y, uint16_t width, uint16_t heig
 virtual void drawCircle(uint16_t x, uint16_t y, uint16_t r, uint16_t color);
 //fill a circle
 virtual void fillCircle(uint16_t x, uint16_t y, uint16_t r, uint16_t color);
-//draw a traingle
-virtual void drawTraingle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
-//fill a traingle area
-virtual void fillTraingle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);	
+//draw a triangle
+virtual void drawTriangle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
+//fill a triangle area
+virtual void fillTriangle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);	
 //draw char like 'a','b','c'
 virtual void drawChar(uint8_t ascii, uint16_t x, uint16_t y, uint16_t size, uint16_t color);
 //draw a string like "hello" 

@@ -121,14 +121,14 @@ void SGL::fillCircle(uint16_t poX, uint16_t poY, uint16_t r, uint16_t color)
     }while(x <= 0);
 }
 
-void SGL::drawTraingle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1,uint16_t x2, uint16_t y2, uint16_t color)
+void SGL::drawTriangle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1,uint16_t x2, uint16_t y2, uint16_t color)
 {
     drawLine(x0, y0, x1, y1,color);
     drawLine(x1, y1, x2, y2,color);
     drawLine(x2, y2, x0, y0,color);
 }
 
-void SGL::fillTraingle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1,uint16_t x2, uint16_t y2, uint16_t color)
+void SGL::fillTriangle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1,uint16_t x2, uint16_t y2, uint16_t color)
 {
     uint16_t a, b, y, last;
 
